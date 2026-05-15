@@ -312,8 +312,25 @@ html, body {
 }
 .backdrop.open .modal { transform: scale(1); }
 .modal h3 { font-family: 'Sora', sans-serif; font-size: 1em; margin-bottom: 6px; }
-.modal p  { font-size: .82em; color: var(--sub); margin-bottom: 16px; line-height: 1.55; }
+.modal p  { font-size: .82em; color: var(--sub); margin-bottom: 14px; line-height: 1.55; }
 .modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
+
+.reset-options { display: flex; flex-direction: column; gap: 8px; }
+.reset-option {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1.5px solid var(--border); background: var(--bg);
+  cursor: pointer; transition: all .15s;
+}
+.reset-option:hover {
+  border-color: #b8d4ff; background: #eff5ff;
+}
+.reset-option.danger:hover {
+  border-color: #f0c0c0; background: #ffe5e5;
+}
+.reset-opt-icon { font-size: 1.3em; flex-shrink: 0; margin-top: 1px; }
+.reset-opt-title { font-size: .85em; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.reset-opt-desc  { font-size: .72em; color: var(--sub); line-height: 1.45; }
 
 /* ── RESPONSIVE LAYOUT SIZES ─────────────────────────────── */
 /* Applied via JS ResizeObserver on #shell */
@@ -448,11 +465,26 @@ html, body {
 <!-- MODAL -->
 <div class="backdrop" id="resetModal">
   <div class="modal">
-    <h3>Reset Everything?</h3>
-    <p>All categories, items, and counts will be permanently deleted. This can't be undone.</p>
-    <div class="modal-btns">
+    <h3>What would you like to reset?</h3>
+    <p>Choose how much to clear. This cannot be undone.</p>
+    <div class="reset-options">
+      <div class="reset-option" onclick="confirmReset('items')">
+        <div class="reset-opt-icon">🧹</div>
+        <div class="reset-opt-body">
+          <div class="reset-opt-title">Clear items only</div>
+          <div class="reset-opt-desc">Remove all items and counts, but keep your categories and their names.</div>
+        </div>
+      </div>
+      <div class="reset-option danger" onclick="confirmReset('all')">
+        <div class="reset-opt-icon">🗑️</div>
+        <div class="reset-opt-body">
+          <div class="reset-opt-title">Delete everything</div>
+          <div class="reset-opt-desc">Remove all categories, items, and counts. Starts completely fresh.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-btns" style="margin-top:14px;">
       <button class="a-btn" onclick="closeReset()">Cancel</button>
-      <button class="a-btn red" onclick="confirmReset()">Yes, Reset</button>
     </div>
   </div>
 </div>
@@ -614,7 +646,15 @@ document.getElementById('subtitleInput').addEventListener('input',function(){S.s
 /* ── RESET ────────────────────────────────────────────── */
 function openReset(){document.getElementById('resetModal').classList.add('open');}
 function closeReset(){document.getElementById('resetModal').classList.remove('open');}
-function confirmReset(){S={title:'Task Counter',subtitle:'Track and categorize your items',sel:null,cats:[]};closeReset();render();}
+function confirmReset(mode){
+  if(mode==='items'){
+    S.cats.forEach(cat=>cat.items=[]);
+    S.sel=null;
+  } else {
+    S={title:S.title, subtitle:S.subtitle, sel:null, cats:[]};
+  }
+  closeReset(); render();
+}
 document.getElementById('resetModal').addEventListener('click',e=>{if(e.target===document.getElementById('resetModal'))closeReset();});
 
 /* ── EXPORT ───────────────────────────────────────────── */
