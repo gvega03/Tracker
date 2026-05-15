@@ -19,66 +19,34 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 #shell { display:flex; flex-direction:column; width:100vw; height:100vh; overflow:hidden; }
 
 /* ── STORAGE WARNING BANNER ── */
-#storageBanner {
-  display:none; flex-shrink:0;
-  background:#fff8e1; border-bottom:1.5px solid #ffe082;
-  padding:6px 14px; font-size:.72em; color:#8a6000;
-  align-items:center; gap:8px; flex-wrap:wrap;
-}
+#storageBanner { display:none; flex-shrink:0; background:#fff8e1; border-bottom:1.5px solid #ffe082; padding:6px 14px; font-size:.72em; color:#8a6000; align-items:center; gap:8px; flex-wrap:wrap; }
 #storageBanner.show { display:flex; }
 #storageBanner strong { font-weight:600; }
-.banner-btn {
-  font-size:.9em; padding:3px 10px; border-radius:6px;
-  border:1.5px solid #e6b800; background:#fff3cd; color:#8a6000;
-  cursor:pointer; white-space:nowrap; transition:all .15s;
-}
+.banner-btn { font-size:.9em; padding:3px 10px; border-radius:6px; border:1.5px solid #e6b800; background:#fff3cd; color:#8a6000; cursor:pointer; white-space:nowrap; transition:all .15s; }
 .banner-btn:hover { background:#ffe082; }
 
 /* ── TOP BAR ── */
-#topbar {
-  flex-shrink:0; background:var(--white); border-bottom:1.5px solid var(--border);
-  display:grid; grid-template-columns:1fr auto; align-items:center; gap:8px; padding:10px 14px;
-}
+#topbar { flex-shrink:0; background:var(--white); border-bottom:1.5px solid var(--border); display:grid; grid-template-columns:1fr auto; align-items:center; gap:8px; padding:10px 14px; }
 .tb-left { display:flex; flex-direction:column; gap:2px; min-width:0; }
 .tb-title-row { display:flex; align-items:center; gap:6px; }
-.tb-icon {
-  font-size:1.3em; cursor:pointer; flex-shrink:0; line-height:1;
-  border-radius:6px; padding:1px 3px; transition:background .15s; user-select:none;
-}
+.tb-icon { font-size:1.3em; cursor:pointer; flex-shrink:0; line-height:1; border-radius:6px; padding:1px 3px; transition:background .15s; user-select:none; }
 .tb-icon:hover { background:var(--bg); }
-.title-input {
-  font-family:'Sora',sans-serif; font-weight:700; color:var(--text);
-  background:transparent; border:none; outline:none;
-  border-bottom:2px solid transparent; transition:border-color .2s;
-  min-width:0; width:100%; font-size:1.1em;
-}
+.title-input { font-family:'Sora',sans-serif; font-weight:700; color:var(--text); background:transparent; border:none; outline:none; border-bottom:2px solid transparent; transition:border-color .2s; min-width:0; width:100%; font-size:1.1em; }
 .title-input:focus { border-color:var(--border); }
-.subtitle-input {
-  font-size:.75em; color:var(--sub); background:transparent;
-  border:none; outline:none; width:100%;
-  border-bottom:1px solid transparent; transition:border-color .2s;
-}
+.subtitle-input { font-size:.75em; color:var(--sub); background:transparent; border:none; outline:none; width:100%; border-bottom:1px solid transparent; transition:border-color .2s; }
 .subtitle-input:focus { border-color:var(--border); }
 .tb-right { display:flex; align-items:center; gap:6px; flex-shrink:0; }
-.icon-btn {
-  width:32px; height:32px; border-radius:8px; border:1.5px solid var(--border);
-  background:var(--white); cursor:pointer; display:flex; align-items:center;
-  justify-content:center; color:var(--sub); font-size:.9em; transition:all .15s;
-}
+.icon-btn { width:32px; height:32px; border-radius:8px; border:1.5px solid var(--border); background:var(--white); cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--sub); font-size:.9em; transition:all .15s; }
 .icon-btn:hover { background:var(--bg); color:var(--text); }
 .tb-total { display:flex; align-items:center; gap:8px; background:var(--bg); border-radius:10px; padding:5px 10px; }
 .tb-total-label { font-size:.65em; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--sub); }
 .tb-total-num { font-family:'Sora',sans-serif; font-weight:700; color:var(--text); font-size:1.3em; line-height:1; }
 .tb-adj { display:flex; gap:4px; }
-.adj-btn {
-  width:28px; height:28px; border-radius:8px; border:none; cursor:pointer;
-  font-size:1.2em; font-weight:300; font-family:'Sora',sans-serif;
-  display:flex; align-items:center; justify-content:center; transition:transform .1s,opacity .15s;
-}
+.adj-btn { width:28px; height:28px; border-radius:8px; border:none; cursor:pointer; font-size:1.2em; font-weight:300; font-family:'Sora',sans-serif; display:flex; align-items:center; justify-content:center; transition:transform .1s,opacity .15s; }
 .adj-btn:active { transform:scale(.9); }
 .adj-btn.minus { background:#e8e8f0; color:var(--text); }
 .adj-btn.minus:hover { background:#deded8; }
-.adj-btn.plus  { background:var(--text); color:#fff; }
+.adj-btn.plus { background:var(--text); color:#fff; }
 .adj-btn.plus:hover { opacity:.82; }
 
 /* ── TAB BAR ── */
@@ -91,8 +59,10 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 #content { flex:1; overflow-y:auto; overflow-x:hidden; padding:var(--gap); }
 #content::-webkit-scrollbar { width:4px; }
 #content::-webkit-scrollbar-thumb { background:#d0d0dc; border-radius:2px; }
-.panel { display:none; }
-.panel.active { display:block; }
+
+/* Panels: all hidden by default, shown when .active */
+.panel { display:none !important; }
+.panel.active { display:block !important; }
 
 /* ── CARD ── */
 .card { background:var(--white); border-radius:var(--r); box-shadow:var(--shadow); padding:12px 14px; margin-bottom:var(--gap); }
@@ -105,7 +75,7 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 .add-item-btn { flex-shrink:0; width:34px; height:34px; background:var(--text); color:#fff; border:none; border-radius:9px; font-size:1.3em; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:opacity .15s; font-family:'Sora',sans-serif; }
 .add-item-btn:hover { opacity:.8; }
 .pills-wrap { display:flex; flex-wrap:wrap; gap:6px; }
-.pill { font-size:.72em; font-weight:500; padding:4px 11px; border-radius:20px; border:2px solid currentColor; cursor:pointer; transition:all .15s; white-space:nowrap; user-select:none; background:transparent; font-family:'DM Sans',sans-serif; position:relative; }
+.pill { font-size:.72em; font-weight:500; padding:4px 11px; border-radius:20px; border:2px solid currentColor; cursor:pointer; transition:all .15s; white-space:nowrap; user-select:none; background:transparent; font-family:'DM Sans',sans-serif; }
 .pill:hover { opacity:.7; }
 .pill.selected { color:#fff !important; }
 .pill.is-default::after { content:'★'; font-size:.7em; margin-left:4px; opacity:.7; }
@@ -148,19 +118,16 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 
 /* ── LIST PANEL ── */
 .list-wrap { background:var(--white); border-radius:var(--r); box-shadow:var(--shadow); overflow:hidden; margin-bottom:var(--gap); }
-.list-item-row { display:flex; align-items:center; gap:6px; padding:9px 14px; border-bottom:1px solid var(--border); transition:background .12s; }
+.list-item-row { display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid var(--border); transition:background .12s; }
 .list-item-row:last-child { border-bottom:none; }
 .list-item-row:hover { background:#fafafa; }
-.list-name { flex:1; font-size:.82em; color:var(--text); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.list-badge { font-size:.65em; font-weight:600; padding:3px 8px; border-radius:20px; border:1.5px solid currentColor; white-space:nowrap; flex-shrink:0; }
-.list-move-sel { font-size:.68em; background:var(--bg); border:1.5px solid var(--border); color:var(--sub); border-radius:7px; padding:3px 5px; cursor:pointer; outline:none; font-family:'DM Sans',sans-serif; max-width:90px; flex-shrink:0; }
-.list-ctrls { display:flex; align-items:center; gap:3px; flex-shrink:0; }
-.lc-btn { width:24px; height:24px; border-radius:6px; border:1.5px solid var(--border); background:var(--bg); cursor:pointer; font-size:.9em; display:flex; align-items:center; justify-content:center; color:var(--sub); transition:all .12s; font-family:'Sora',sans-serif; }
-.lc-btn:hover { background:var(--text); color:#fff; border-color:var(--text); }
-.lc-val { font-family:'Sora',sans-serif; font-size:.82em; font-weight:600; min-width:20px; text-align:center; }
-.lc-del { width:24px; height:24px; border-radius:6px; border:1.5px solid var(--border); background:var(--bg); cursor:pointer; font-size:.65em; display:flex; align-items:center; justify-content:center; color:var(--sub); transition:all .12s; flex-shrink:0; }
+.list-name { flex:1; font-size:.85em; color:var(--text); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.list-badge { font-size:.65em; font-weight:600; padding:3px 9px; border-radius:20px; border:1.5px solid currentColor; white-space:nowrap; flex-shrink:0; }
+.list-move-sel { font-size:.72em; background:var(--bg); border:1.5px solid var(--border); color:var(--sub); border-radius:7px; padding:4px 6px; cursor:pointer; outline:none; font-family:'DM Sans',sans-serif; flex-shrink:0; max-width:130px; transition:border-color .15s; }
+.list-move-sel:focus { border-color:#b8b8cc; color:var(--text); }
+.lc-del { width:26px; height:26px; border-radius:7px; border:1.5px solid var(--border); background:var(--bg); cursor:pointer; font-size:.65em; display:flex; align-items:center; justify-content:center; color:var(--sub); transition:all .12s; flex-shrink:0; }
 .lc-del:hover { background:#ffe5e5; color:#e05252; border-color:#f0c0c0; }
-.list-empty { text-align:center; padding:32px 20px; color:var(--sub); font-size:.82em; }
+.list-empty { text-align:center; padding:36px 20px; color:var(--sub); font-size:.85em; }
 
 /* ── SETTINGS ── */
 .s-card { background:var(--white); border-radius:var(--r); box-shadow:var(--shadow); overflow:hidden; margin-bottom:var(--gap); }
@@ -168,7 +135,7 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 .s-row { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--border); gap:10px; }
 .s-row:last-child { border-bottom:none; }
 .s-label { font-size:.82em; color:var(--text); }
-.s-desc  { font-size:.68em; color:var(--sub); margin-top:1px; }
+.s-desc { font-size:.68em; color:var(--sub); margin-top:1px; }
 .swatches { display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end; }
 .swatch { width:18px; height:18px; border-radius:50%; cursor:pointer; border:2.5px solid transparent; transition:transform .15s,border-color .15s; flex-shrink:0; }
 .swatch:hover,.swatch.on { transform:scale(1.25); border-color:rgba(0,0,0,.25); }
@@ -183,13 +150,13 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 .emoji-opt:hover { background:var(--bg); }
 .emoji-close { width:100%; margin-top:8px; font-size:.72em; padding:5px; border-radius:7px; border:1.5px solid var(--border); background:var(--bg); color:var(--sub); cursor:pointer; }
 
-/* ── MODAL ── */
+/* ── MODALS ── */
 .backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; z-index:200; opacity:0; pointer-events:none; transition:opacity .2s; padding:16px; }
 .backdrop.open { opacity:1; pointer-events:all; }
 .modal { background:var(--white); border-radius:18px; padding:22px; width:100%; max-width:320px; box-shadow:0 20px 60px rgba(0,0,0,.2); transform:scale(.96); transition:transform .2s; }
 .backdrop.open .modal { transform:scale(1); }
 .modal h3 { font-family:'Sora',sans-serif; font-size:1em; margin-bottom:6px; }
-.modal p  { font-size:.82em; color:var(--sub); margin-bottom:14px; line-height:1.55; }
+.modal p { font-size:.82em; color:var(--sub); margin-bottom:14px; line-height:1.55; }
 .modal-btns { display:flex; gap:8px; justify-content:flex-end; }
 .reset-options { display:flex; flex-direction:column; gap:8px; }
 .reset-option { display:flex; align-items:flex-start; gap:11px; padding:12px 14px; border-radius:12px; border:1.5px solid var(--border); background:var(--bg); cursor:pointer; transition:all .15s; }
@@ -197,15 +164,14 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 .reset-option.danger:hover { border-color:#f0c0c0; background:#ffe5e5; }
 .reset-opt-icon { font-size:1.3em; flex-shrink:0; margin-top:1px; }
 .reset-opt-title { font-size:.85em; font-weight:600; color:var(--text); margin-bottom:2px; }
-.reset-opt-desc  { font-size:.72em; color:var(--sub); line-height:1.45; }
-
-/* ── EXPORT MODAL ── */
-.export-modal-area { width:100%; height:120px; border:1.5px solid var(--border); border-radius:9px; padding:8px 10px; font-size:.72em; font-family:monospace; background:var(--bg); color:var(--text); resize:none; outline:none; margin-bottom:10px; }
+.reset-opt-desc { font-size:.72em; color:var(--sub); line-height:1.45; }
+.export-modal-area { width:100%; height:130px; border:1.5px solid var(--border); border-radius:9px; padding:8px 10px; font-size:.72em; font-family:monospace; background:var(--bg); color:var(--text); resize:none; outline:none; margin-bottom:10px; }
 .export-tabs { display:flex; gap:5px; margin-bottom:10px; }
 .export-tab { flex:1; font-size:.72em; padding:5px; border-radius:7px; border:1.5px solid var(--border); background:var(--bg); color:var(--sub); cursor:pointer; text-align:center; transition:all .15s; }
 .export-tab.active { background:var(--text); color:#fff; border-color:var(--text); }
 
 /* ── RESPONSIVE ── */
+/* Narrow */
 #shell.xs .subtitle-input { display:none; }
 #shell.xs .tb-total-label { display:none; }
 #shell.xs #topbar { padding:7px 10px; }
@@ -214,13 +180,21 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 #shell.xs .cat-num { font-size:1.6em; }
 #shell.sm .cat-grid { grid-template-columns:1fr 1fr; }
 #shell.md .cat-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); }
-#shell.lg #panel-tracker { display:grid; grid-template-columns:220px 1fr; gap:var(--gap); align-items:start; }
-#shell.lg #panel-tracker .add-card { margin-bottom:0; }
-#shell.lg #panel-tracker .tracker-right { display:flex; flex-direction:column; }
+
+/* Wide: layout is on .tracker-inner, NOT on the panel itself */
+#shell.lg .tracker-inner,
+#shell.xl .tracker-inner {
+  display:grid;
+  align-items:start;
+  gap:var(--gap);
+}
+#shell.lg .tracker-inner { grid-template-columns:220px 1fr; }
+#shell.xl .tracker-inner { grid-template-columns:260px 1fr; }
+#shell.lg .tracker-inner .add-card,
+#shell.xl .tracker-inner .add-card { margin-bottom:0; }
+#shell.lg .tracker-right,
+#shell.xl .tracker-right { display:flex; flex-direction:column; }
 #shell.lg .cat-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); margin-bottom:var(--gap); }
-#shell.xl #panel-tracker { display:grid; grid-template-columns:260px 1fr; gap:var(--gap); align-items:start; }
-#shell.xl #panel-tracker .add-card { margin-bottom:0; }
-#shell.xl #panel-tracker .tracker-right { display:flex; flex-direction:column; }
 #shell.xl .cat-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); }
 #shell.xl .cat-num { font-size:2.2em; }
 </style>
@@ -230,7 +204,7 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 
   <!-- STORAGE WARNING -->
   <div id="storageBanner">
-    <span>⚠️ <strong>Notion embed detected:</strong> data saves this session only. Use Export to keep your records.</span>
+    <span>⚠️ <strong>Notion embed:</strong> data saves this session only. Export your data to keep records.</span>
     <button class="banner-btn" onclick="document.getElementById('storageBanner').classList.remove('show')">Dismiss</button>
   </div>
 
@@ -268,29 +242,33 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
   <!-- CONTENT -->
   <div id="content">
 
-    <!-- TRACKER -->
+    <!-- ── TRACKER PANEL ── -->
     <div class="panel active" id="panel-tracker">
-      <div class="card add-card">
-        <div class="add-row">
-          <input class="item-name-inp" id="newItemName" placeholder="Item name (optional)…" onkeydown="if(event.key==='Enter')addItem()">
-          <button class="add-item-btn" onclick="addItem()">+</button>
+      <div class="tracker-inner">
+        <!-- Left col: add item card -->
+        <div class="card add-card">
+          <div class="add-row">
+            <input class="item-name-inp" id="newItemName" placeholder="Item name (optional)…" onkeydown="if(event.key==='Enter')addItem()">
+            <button class="add-item-btn" onclick="addItem()">+</button>
+          </div>
+          <div class="pills-wrap" id="pillsWrap"></div>
         </div>
-        <div class="pills-wrap" id="pillsWrap"></div>
-      </div>
-      <div class="tracker-right">
-        <div class="cat-grid" id="catGrid"></div>
-        <div class="add-cat-row">
-          <input class="add-cat-inp" id="newCatInp" placeholder="New category name…" onkeydown="if(event.key==='Enter')addCat()">
-          <button class="add-btn" onclick="addCat()">+ Add</button>
-        </div>
-        <div class="bottom-bar">
-          <button class="a-btn green" onclick="openExport()">↓ Export</button>
-          <button class="a-btn red" onclick="openReset()">↺ Reset</button>
+        <!-- Right col: grid + add cat + bar -->
+        <div class="tracker-right">
+          <div class="cat-grid" id="catGrid"></div>
+          <div class="add-cat-row">
+            <input class="add-cat-inp" id="newCatInp" placeholder="New category name…" onkeydown="if(event.key==='Enter')addCat()">
+            <button class="add-btn" onclick="addCat()">+ Add</button>
+          </div>
+          <div class="bottom-bar">
+            <button class="a-btn green" onclick="openExport()">↓ Export</button>
+            <button class="a-btn red" onclick="openReset()">↺ Reset</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- LIST -->
+    <!-- ── LIST PANEL ── -->
     <div class="panel" id="panel-list">
       <div class="list-wrap" id="listWrap"></div>
       <div class="bottom-bar">
@@ -299,25 +277,22 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
       </div>
     </div>
 
-    <!-- SETTINGS -->
+    <!-- ── SETTINGS PANEL ── -->
     <div class="panel" id="panel-settings">
-
       <div class="s-card">
         <div class="s-head">Default Category</div>
         <div class="s-row">
           <div>
             <div class="s-label">New items go to</div>
-            <div class="s-desc">When no category pill is selected, items are added here</div>
+            <div class="s-desc">When no pill is selected, items are added here</div>
           </div>
           <select class="default-sel" id="defaultCatSel" onchange="setDefaultCat(this.value)"></select>
         </div>
       </div>
-
       <div class="s-card">
         <div class="s-head">Category Colors</div>
         <div id="colorSettings"></div>
       </div>
-
       <div class="s-card">
         <div class="s-head">Export &amp; Data</div>
         <div class="s-row">
@@ -329,10 +304,10 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
           <button class="a-btn red" onclick="openReset()">Reset</button>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
+
+  </div><!-- /content -->
+</div><!-- /shell -->
 
 <!-- EMOJI PICKER -->
 <div class="emoji-picker-wrap" id="emojiPicker">
@@ -348,14 +323,14 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
     <div class="reset-options">
       <div class="reset-option" onclick="confirmReset('items')">
         <div class="reset-opt-icon">🧹</div>
-        <div class="reset-opt-body">
+        <div>
           <div class="reset-opt-title">Clear items only</div>
           <div class="reset-opt-desc">Remove all items and counts, keep categories.</div>
         </div>
       </div>
       <div class="reset-option danger" onclick="confirmReset('all')">
         <div class="reset-opt-icon">🗑️</div>
-        <div class="reset-opt-body">
+        <div>
           <div class="reset-opt-title">Delete everything</div>
           <div class="reset-opt-desc">Remove all categories, items, and counts.</div>
         </div>
@@ -386,98 +361,90 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'DM Sans',sans
 </div>
 
 <script>
-/* ── PALETTE & EMOJIS ─────────────────────────────── */
+/* ── PALETTE & EMOJIS ── */
 const PALETTE=[
-  {bg:'#e0f7fa',text:'#00838f',bar:'#00acc1'},
-  {bg:'#fff8e1',text:'#e65100',bar:'#fb8c00'},
-  {bg:'#fce4ec',text:'#c62828',bar:'#ef5350'},
-  {bg:'#f3e5f5',text:'#6a1b9a',bar:'#ab47bc'},
-  {bg:'#e8f5e9',text:'#1b5e20',bar:'#43a047'},
-  {bg:'#e3f2fd',text:'#1565c0',bar:'#42a5f5'},
-  {bg:'#fdf3e7',text:'#bf360c',bar:'#ff7043'},
-  {bg:'#f9fbe7',text:'#558b2f',bar:'#aed581'},
-  {bg:'#ede7f6',text:'#4527a0',bar:'#7e57c2'},
-  {bg:'#fafafa',text:'#37474f',bar:'#90a4ae'},
+  {bg:'#e0f7fa',text:'#00838f',bar:'#00acc1'},  // 0 teal
+  {bg:'#fff8e1',text:'#e65100',bar:'#fb8c00'},  // 1 orange
+  {bg:'#fce4ec',text:'#c62828',bar:'#ef5350'},  // 2 red
+  {bg:'#f3e5f5',text:'#6a1b9a',bar:'#ab47bc'},  // 3 purple
+  {bg:'#e8f5e9',text:'#1b5e20',bar:'#43a047'},  // 4 green
+  {bg:'#e3f2fd',text:'#1565c0',bar:'#42a5f5'},  // 5 blue
+  {bg:'#fdf3e7',text:'#bf360c',bar:'#ff7043'},  // 6 deep orange
+  {bg:'#f9fbe7',text:'#558b2f',bar:'#aed581'},  // 7 lime
+  {bg:'#ede7f6',text:'#4527a0',bar:'#7e57c2'},  // 8 deep purple
+  {bg:'#fafafa',text:'#37474f',bar:'#90a4ae'},  // 9 grey
+  {bg:'#e8eaf6',text:'#283593',bar:'#5c6bc0'},  // 10 indigo (Rescheduled)
 ];
-const SWATCHES=['#00acc1','#fb8c00','#ef5350','#ab47bc','#43a047','#42a5f5','#ff7043','#aed581','#7e57c2','#90a4ae'];
+const SWATCHES=['#00acc1','#fb8c00','#ef5350','#ab47bc','#43a047','#42a5f5','#ff7043','#aed581','#7e57c2','#90a4ae','#5c6bc0'];
 const EMOJIS=['📋','✅','📊','🗂️','📌','📎','🏷️','📝','🔖','📁','💼','🗃️','📈','📉','🎯','🚀','💡','⭐','🔥','💎','🏆','👥','📞','✉️','🔔','⚡','🌟','🎪','🛠️','🧩'];
 
 function uid(){return Math.random().toString(36).slice(2,9);}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-/* ── STORAGE: localStorage → sessionStorage → memory ── */
-let _memStore={};
-let storageType='local';
+/* ── STORAGE ── */
+let _mem={}, storageType='local';
 function tryStorage(){
-  try{ localStorage.setItem('__tc_test','1'); localStorage.removeItem('__tc_test'); return 'local'; }catch(e){}
-  try{ sessionStorage.setItem('__tc_test','1'); sessionStorage.removeItem('__tc_test'); return 'session'; }catch(e){}
+  try{localStorage.setItem('__t','1');localStorage.removeItem('__t');return 'local';}catch(e){}
+  try{sessionStorage.setItem('__t','1');sessionStorage.removeItem('__t');return 'session';}catch(e){}
   return 'memory';
 }
 storageType=tryStorage();
-if(storageType!=='local'){
-  document.getElementById('storageBanner').classList.add('show');
+if(storageType!=='local') document.getElementById('storageBanner').classList.add('show');
+function storeSave(k,v){
+  const s=JSON.stringify(v);
+  if(storageType==='local'){try{localStorage.setItem(k,s);}catch(e){}}
+  else if(storageType==='session'){try{sessionStorage.setItem(k,s);}catch(e){}}
+  else{_mem[k]=s;}
 }
-function storeSave(key,val){
-  const v=JSON.stringify(val);
-  if(storageType==='local')       { try{localStorage.setItem(key,v);}catch(e){} }
-  else if(storageType==='session'){ try{sessionStorage.setItem(key,v);}catch(e){} }
-  else { _memStore[key]=v; }
-}
-function storeLoad(key){
+function storeLoad(k){
   let v=null;
-  if(storageType==='local')       { try{v=localStorage.getItem(key);}catch(e){} }
-  else if(storageType==='session'){ try{v=sessionStorage.getItem(key);}catch(e){} }
-  else { v=_memStore[key]||null; }
+  if(storageType==='local'){try{v=localStorage.getItem(k);}catch(e){}}
+  else if(storageType==='session'){try{v=sessionStorage.getItem(k);}catch(e){}}
+  else{v=_mem[k]||null;}
   if(!v)return null;
   try{return JSON.parse(v);}catch(e){return null;}
 }
 
-/* ── STATE ─────────────────────────────────────────── */
-let S={
-  title:'Task Counter', subtitle:'Track and categorize your items',
-  icon:'📋', sel:null, defaultCat:null,
-  cats:[
-    {id:uid(),name:'Scheduled Interview',  ci:0, items:[]},
-    {id:uid(),name:'Pending Assignment',   ci:1, items:[]},
-    {id:uid(),name:'Pending Offer Letter', ci:2, items:[]},
-    {id:uid(),name:'No Show',              ci:9, items:[]},
-    {id:uid(),name:'Offer Letter Rejected',ci:3, items:[]},
-    {id:uid(),name:'Offer Letter Accepted',ci:4, items:[]},
-    {id:uid(),name:'Did Not Interview Well',ci:8,items:[]},
-  ]
-};
-
-function ensureDefault(){
-  // defaultCat must always point to a valid cat id
-  if(!S.cats.length){ S.defaultCat=null; return; }
-  if(!S.defaultCat||!S.cats.find(c=>c.id===S.defaultCat)){
-    S.defaultCat=S.cats[0].id;
-  }
+/* ── DEFAULT STATE — matches screenshot exactly ── */
+function makeDefaultState(){
+  const cats=[
+    {id:uid(),name:'Scheduled Interview',   ci:0,  items:[]},
+    {id:uid(),name:'Pending Assignment',    ci:1,  items:[]},
+    {id:uid(),name:'Pending Offer Letter',  ci:6,  items:[]},
+    {id:uid(),name:'No Show',               ci:9,  items:[]},
+    {id:uid(),name:'Offer Letter Rejected', ci:2,  items:[]},
+    {id:uid(),name:'Offer Letter Accepted', ci:4,  items:[]},
+    {id:uid(),name:'Did Not Interview Well',ci:8,  items:[]},
+    {id:uid(),name:'Rescheduled For Next Week',ci:5,items:[]},
+  ];
+  return {title:'Task Counter',subtitle:'Track and categorize your items',icon:'📋',sel:null,defaultCat:cats[0].id,cats};
 }
 
-function save(){ ensureDefault(); storeSave('tc5',S); }
-function load(){ const d=storeLoad('tc5'); if(d){ S=d; ensureDefault(); } }
-function total(){ return S.cats.reduce((s,c)=>s+c.items.reduce((a,i)=>a+i.count,0),0); }
-function catSum(c){ return c.items.reduce((a,i)=>a+i.count,0); }
+let S=makeDefaultState();
 
-/* Returns the active destination cat id (selected pill > defaultCat) */
-function destCat(){ return S.sel||S.defaultCat||(S.cats[0]?.id)||null; }
+function ensureDefault(){
+  if(!S.cats.length){S.defaultCat=null;return;}
+  if(!S.defaultCat||!S.cats.find(c=>c.id===S.defaultCat)) S.defaultCat=S.cats[0].id;
+}
+function save(){ensureDefault();storeSave('tc6',S);}
+function load(){const d=storeLoad('tc6');if(d){S=d;ensureDefault();}}
+function total(){return S.cats.reduce((s,c)=>s+c.items.length,0);}
+function catCount(c){return c.items.length;}
+function destCat(){return S.sel||S.defaultCat||(S.cats[0]?.id)||null;}
 
-/* ── RENDER ─────────────────────────────────────────── */
+/* ── RENDER ── */
 function render(){
   save();
   document.getElementById('totalNum').textContent=total();
   document.getElementById('titleInput').value=S.title;
   document.getElementById('subtitleInput').value=S.subtitle;
   document.getElementById('tbIcon').textContent=S.icon||'📋';
-  renderPills(); renderGrid(); renderList(); renderColors(); renderDefaultSel();
+  renderPills();renderGrid();renderList();renderColors();renderDefaultSel();
 }
 
 function renderPills(){
   document.getElementById('pillsWrap').innerHTML=S.cats.map(cat=>{
-    const c=PALETTE[cat.ci%PALETTE.length];
-    const sel=S.sel===cat.id;
-    const isDef=(!S.sel&&cat.id===S.defaultCat);
+    const c=PALETTE[cat.ci%PALETTE.length],sel=S.sel===cat.id,isDef=!S.sel&&cat.id===S.defaultCat;
     return `<span class="pill${sel?' selected':''}${isDef?' is-default':''}"
       style="color:${c.text};border-color:${c.text};${sel?`background:${c.text}`:'background:transparent'}"
       onclick="selCat('${cat.id}')">${esc(cat.name)}</span>`;
@@ -487,12 +454,12 @@ function renderPills(){
 function renderGrid(){
   const tot=total();
   document.getElementById('catGrid').innerHTML=S.cats.map(cat=>{
-    const c=PALETTE[cat.ci%PALETTE.length], cnt=catSum(cat);
+    const c=PALETTE[cat.ci%PALETTE.length],cnt=catCount(cat);
     const pct=tot?Math.round(cnt/tot*100):0;
     const isDef=cat.id===S.defaultCat;
     return `<div class="cat-card" style="background:${c.bg};color:${c.text}">
       <div class="cat-actions">
-        <button class="cat-micro-btn" title="Set as default" onclick="setDefaultCat('${cat.id}')" style="${isDef?'opacity:1;':''}">★</button>
+        <button class="cat-micro-btn" title="Set as default" onclick="setDefaultCat('${cat.id}')">★</button>
         <button class="cat-micro-btn del" title="Delete" onclick="delCat('${cat.id}')">✕</button>
       </div>
       <div class="cat-card-hdr">
@@ -501,28 +468,27 @@ function renderGrid(){
       </div>
       <div class="cat-num" style="color:${c.text}">${cnt}</div>
       <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${c.bar}"></div></div>
-      ${isDef?`<div class="cat-default-badge">★ default</div>`:''}
+      ${isDef?`<div class="cat-default-badge" style="color:${c.text}">★ DEFAULT</div>`:''}
     </div>`;
   }).join('');
 }
 
 function renderList(){
   const wrap=document.getElementById('listWrap');
-  const all=[];S.cats.forEach(cat=>cat.items.forEach(item=>all.push({item,cat})));
-  if(!all.length){wrap.innerHTML='<div class="list-empty">No items yet — add some in the Tracker tab.</div>';return;}
+  const all=[];
+  S.cats.forEach(cat=>cat.items.forEach(item=>all.push({item,cat})));
+  if(!all.length){
+    wrap.innerHTML='<div class="list-empty">No items yet — add some in the Tracker tab.</div>';
+    return;
+  }
   wrap.innerHTML=all.map(({item,cat})=>{
     const c=PALETTE[cat.ci%PALETTE.length];
     const opts=S.cats.map(cc=>`<option value="${cc.id}"${cc.id===cat.id?' selected':''}>${esc(cc.name)}</option>`).join('');
     return `<div class="list-item-row">
       <div class="list-name">${esc(item.name)||'—'}</div>
       <span class="list-badge" style="color:${c.text};border-color:${c.text}">${esc(cat.name)}</span>
-      <select class="list-move-sel" onchange="moveItem('${cat.id}','${item.id}',this.value)">${opts}</select>
-      <div class="list-ctrls">
-        <button class="lc-btn" onclick="chg('${cat.id}','${item.id}',-1)">−</button>
-        <span class="lc-val">${item.count}</span>
-        <button class="lc-btn" onclick="chg('${cat.id}','${item.id}',1)">+</button>
-      </div>
-      <button class="lc-del" onclick="delItem('${cat.id}','${item.id}')">✕</button>
+      <select class="list-move-sel" onchange="moveItem('${cat.id}','${item.id}',this.value)" title="Move to category">${opts}</select>
+      <button class="lc-del" onclick="delItem('${cat.id}','${item.id}')" title="Delete item">✕</button>
     </div>`;
   }).join('');
 }
@@ -541,74 +507,64 @@ function renderDefaultSel(){
   sel.innerHTML=S.cats.map(c=>`<option value="${c.id}"${c.id===S.defaultCat?' selected':''}>${esc(c.name)}</option>`).join('');
 }
 
-/* ── ACTIONS ─────────────────────────────────────────── */
+/* ── ACTIONS ── */
 function quickAdj(d){
-  const catId=destCat(); if(!catId)return;
-  const cat=S.cats.find(c=>c.id===catId); if(!cat)return;
-  if(d>0){cat.items.push({id:uid(),name:'',count:1});}
-  else{for(let i=cat.items.length-1;i>=0;i--){if(cat.items[i].count>0){cat.items[i].count--;if(!cat.items[i].count&&!cat.items[i].name)cat.items.splice(i,1);break;}}}
+  const catId=destCat();if(!catId)return;
+  const cat=S.cats.find(c=>c.id===catId);if(!cat)return;
+  if(d>0){cat.items.push({id:uid(),name:''});}
+  else if(cat.items.length>0){cat.items.pop();}
   render();
 }
 
-function selCat(id){
-  // clicking the already-selected pill deselects; fall back to default
-  S.sel=(S.sel===id)?null:id;
-  render();
-}
-
-function setDefaultCat(id){
-  if(!S.cats.find(c=>c.id===id))return;
-  S.defaultCat=id;
-  render();
-}
+function selCat(id){S.sel=(S.sel===id)?null:id;render();}
+function setDefaultCat(id){if(!S.cats.find(c=>c.id===id))return;S.defaultCat=id;render();}
 
 function addItem(){
-  const catId=destCat(); if(!catId)return;
-  const cat=S.cats.find(c=>c.id===catId); if(!cat)return;
+  const catId=destCat();if(!catId)return;
+  const cat=S.cats.find(c=>c.id===catId);if(!cat)return;
   const name=document.getElementById('newItemName').value.trim();
-  cat.items.push({id:uid(),name,count:1});
+  cat.items.push({id:uid(),name});
   document.getElementById('newItemName').value='';
   render();
 }
 
 function addCat(){
-  const inp=document.getElementById('newCatInp'), name=inp.value.trim(); if(!name)return;
-  const newCat={id:uid(),name,ci:S.cats.length%PALETTE.length,items:[]};
-  S.cats.push(newCat);
-  if(!S.defaultCat) S.defaultCat=newCat.id;
-  inp.value=''; render();
+  const inp=document.getElementById('newCatInp'),name=inp.value.trim();if(!name)return;
+  const nc={id:uid(),name,ci:S.cats.length%PALETTE.length,items:[]};
+  S.cats.push(nc);
+  if(!S.defaultCat)S.defaultCat=nc.id;
+  inp.value='';render();
 }
 
 function delCat(id){
   S.cats=S.cats.filter(c=>c.id!==id);
-  if(S.sel===id) S.sel=null;
-  ensureDefault();
-  render();
+  if(S.sel===id)S.sel=null;
+  ensureDefault();render();
 }
 
 function renCat(id,name){
-  const c=S.cats.find(c=>c.id===id); if(c)c.name=name;
-  save(); renderPills(); renderList(); renderColors(); renderDefaultSel();
+  const c=S.cats.find(c=>c.id===id);if(c)c.name=name;
+  save();renderPills();renderList();renderColors();renderDefaultSel();
 }
 
-function setCatColor(id,ci){ const c=S.cats.find(c=>c.id===id); if(c)c.ci=ci; render(); }
+function setCatColor(id,ci){const c=S.cats.find(c=>c.id===id);if(c)c.ci=ci;render();}
 
-function chg(catId,itemId,d){
-  const cat=S.cats.find(c=>c.id===catId); if(!cat)return;
-  const item=cat.items.find(i=>i.id===itemId); if(item)item.count=Math.max(0,item.count+d); render();
+function delItem(catId,itemId){
+  const cat=S.cats.find(c=>c.id===catId);
+  if(cat)cat.items=cat.items.filter(i=>i.id!==itemId);
+  render();
 }
-
-function delItem(catId,itemId){ const cat=S.cats.find(c=>c.id===catId); if(cat)cat.items=cat.items.filter(i=>i.id!==itemId); render(); }
 
 function moveItem(fromId,itemId,toId){
   if(fromId===toId)return;
-  const from=S.cats.find(c=>c.id===fromId), to=S.cats.find(c=>c.id===toId);
+  const from=S.cats.find(c=>c.id===fromId),to=S.cats.find(c=>c.id===toId);
   if(!from||!to)return;
-  const idx=from.items.findIndex(i=>i.id===itemId); if(idx===-1)return;
-  to.items.push(...from.items.splice(idx,1)); render();
+  const idx=from.items.findIndex(i=>i.id===itemId);if(idx===-1)return;
+  to.items.push(...from.items.splice(idx,1));
+  render();
 }
 
-/* ── TABS ──────────────────────────────────────────── */
+/* ── TABS ── */
 function switchTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['tracker','list','settings'][i]===name));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+name));
@@ -616,128 +572,102 @@ function switchTab(name){
   if(name==='settings'){renderColors();renderDefaultSel();}
 }
 
-/* ── INPUTS ────────────────────────────────────────── */
+/* ── INPUTS ── */
 document.getElementById('titleInput').addEventListener('input',function(){S.title=this.value;save();});
 document.getElementById('subtitleInput').addEventListener('input',function(){S.subtitle=this.value;save();});
 
-/* ── EMOJI PICKER ──────────────────────────────────── */
+/* ── EMOJI PICKER ── */
 const emojiPicker=document.getElementById('emojiPicker');
 document.getElementById('emojiGrid').innerHTML=EMOJIS.map(e=>`<div class="emoji-opt" onclick="pickEmoji('${e}')">${e}</div>`).join('');
-
 function openEmojiPicker(e){
   const r=document.getElementById('tbIcon').getBoundingClientRect();
   emojiPicker.style.top=(r.bottom+6)+'px';
   emojiPicker.style.left=Math.min(r.left,window.innerWidth-244)+'px';
-  emojiPicker.classList.add('open');
-  e.stopPropagation();
+  emojiPicker.classList.add('open');e.stopPropagation();
 }
-function closeEmojiPicker(){ emojiPicker.classList.remove('open'); }
-function pickEmoji(e){ S.icon=e; document.getElementById('tbIcon').textContent=e; save(); closeEmojiPicker(); }
-document.addEventListener('click',function(e){
-  if(!emojiPicker.contains(e.target)&&e.target.id!=='tbIcon') closeEmojiPicker();
-});
+function closeEmojiPicker(){emojiPicker.classList.remove('open');}
+function pickEmoji(e){S.icon=e;document.getElementById('tbIcon').textContent=e;save();closeEmojiPicker();}
+document.addEventListener('click',function(e){if(!emojiPicker.contains(e.target)&&e.target.id!=='tbIcon')closeEmojiPicker();});
 
-/* ── RESET ─────────────────────────────────────────── */
-function openReset(){ document.getElementById('resetModal').classList.add('open'); }
-function closeReset(){ document.getElementById('resetModal').classList.remove('open'); }
+/* ── RESET ── */
+function openReset(){document.getElementById('resetModal').classList.add('open');}
+function closeReset(){document.getElementById('resetModal').classList.remove('open');}
 function confirmReset(mode){
-  if(mode==='items'){
-    S.cats.forEach(cat=>cat.items=[]);
-    S.sel=null;
-  } else {
-    S={title:S.title,subtitle:S.subtitle,icon:S.icon,sel:null,defaultCat:null,cats:[]};
-  }
-  closeReset(); render();
+  if(mode==='items'){S.cats.forEach(cat=>cat.items=[]);S.sel=null;}
+  else{S={...makeDefaultState(),title:S.title,subtitle:S.subtitle,icon:S.icon};}
+  closeReset();render();
 }
 document.getElementById('resetModal').addEventListener('click',e=>{if(e.target===document.getElementById('resetModal'))closeReset();});
 
-/* ── EXPORT (Notion-safe) ──────────────────────────── */
+/* ── EXPORT ── */
 let exportMode='csv';
-
 function buildCSV(){
-  const rows=[['Item','Category','Count','Date']], now=new Date().toLocaleDateString();
-  S.cats.forEach(cat=>cat.items.forEach(item=>rows.push([item.name||'(unnamed)',cat.name,item.count,now])));
-  rows.push([],['-Category Totals-','','','']);
-  S.cats.forEach(cat=>rows.push([cat.name,'',catSum(cat),'']));
-  rows.push(['TOTAL','',total(),'']);
+  const rows=[['Item','Category','Date']],now=new Date().toLocaleDateString();
+  S.cats.forEach(cat=>cat.items.forEach(item=>rows.push([item.name||'(unnamed)',cat.name,now])));
+  rows.push([]);
+  rows.push(['-Category Totals-','','']);
+  S.cats.forEach(cat=>rows.push([cat.name,catCount(cat),'']));
+  rows.push(['TOTAL',total(),'']);
   return rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
 }
-
 function buildJSON(){
-  return JSON.stringify({
-    title:S.title, exported:new Date().toISOString(), total:total(),
-    categories:S.cats.map(cat=>({name:cat.name,total:catSum(cat),items:cat.items.map(i=>({name:i.name,count:i.count}))}))
-  },null,2);
+  return JSON.stringify({title:S.title,exported:new Date().toISOString(),total:total(),
+    categories:S.cats.map(cat=>({name:cat.name,count:catCount(cat),items:cat.items.map(i=>i.name||'(unnamed)')}))},null,2);
 }
-
 function openExport(){
   exportMode='csv';
   document.querySelectorAll('.export-tab').forEach((t,i)=>t.classList.toggle('active',i===0));
   document.getElementById('exportArea').value=buildCSV();
   document.getElementById('exportModal').classList.add('open');
 }
-function closeExport(){ document.getElementById('exportModal').classList.remove('open'); }
+function closeExport(){document.getElementById('exportModal').classList.remove('open');}
 document.getElementById('exportModal').addEventListener('click',e=>{if(e.target===document.getElementById('exportModal'))closeExport();});
-
 function switchExportTab(mode){
   exportMode=mode;
   document.querySelectorAll('.export-tab').forEach((t,i)=>t.classList.toggle('active',['csv','json'][i]===mode));
   document.getElementById('exportArea').value=mode==='csv'?buildCSV():buildJSON();
 }
-
 function copyExport(){
-  const area=document.getElementById('exportArea');
-  area.select();
+  const area=document.getElementById('exportArea');area.select();
+  const btn=event.target;
   try{
     document.execCommand('copy');
-    const btn=event.target; btn.textContent='Copied!';
-    setTimeout(()=>btn.textContent='Copy ✓',1800);
+    btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy ✓',1800);
   }catch(e){
-    // Modern clipboard API fallback
-    navigator.clipboard.writeText(area.value).then(()=>{
-      const btn=event.target; btn.textContent='Copied!';
-      setTimeout(()=>btn.textContent='Copy ✓',1800);
-    }).catch(()=>alert('Please manually select all text and copy.'));
+    navigator.clipboard.writeText(area.value)
+      .then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy ✓',1800);})
+      .catch(()=>alert('Select all text in the box and copy manually.'));
   }
 }
-
 function openInTab(){
   const content=document.getElementById('exportArea').value;
   const mime=exportMode==='csv'?'text/csv':'application/json';
-  const fname=`${S.title.replace(/\s+/g,'_')}.${exportMode}`;
   try{
-    // Try blob URL first (works outside Notion)
     const url=URL.createObjectURL(new Blob([content],{type:mime}));
-    const a=document.createElement('a'); a.href=url; a.download=fname; a.click();
+    const a=document.createElement('a');a.href=url;a.download=`${S.title.replace(/\s+/g,'_')}.${exportMode}`;a.click();
     setTimeout(()=>URL.revokeObjectURL(url),2000);
   }catch(e){
-    // Fallback: data URI in new tab
-    try{
-      const uri='data:'+mime+';charset=utf-8,'+encodeURIComponent(content);
-      window.open(uri,'_blank');
-    }catch(e2){
-      alert('Download blocked. Use "Copy" and paste into a text file, saving as .'+exportMode);
-    }
+    try{window.open('data:'+mime+';charset=utf-8,'+encodeURIComponent(content),'_blank');}
+    catch(e2){alert('Use "Copy" and paste into a text file saved as .'+exportMode);}
   }
 }
 
-/* ── RESPONSIVE ────────────────────────────────────── */
+/* ── RESPONSIVE ── */
 const shell=document.getElementById('shell');
 const SIZES=['xs','sm','md','lg','xl'];
 function applySize(w){
   shell.classList.remove(...SIZES);
-  if(w<280)       shell.classList.add('xs');
-  else if(w<480)  shell.classList.add('sm');
-  else if(w<700)  shell.classList.add('md');
-  else if(w<1000) shell.classList.add('lg');
-  else            shell.classList.add('xl');
+  if(w<280)shell.classList.add('xs');
+  else if(w<480)shell.classList.add('sm');
+  else if(w<700)shell.classList.add('md');
+  else if(w<1000)shell.classList.add('lg');
+  else shell.classList.add('xl');
 }
 const ro=new ResizeObserver(entries=>{for(const e of entries)applySize(e.contentRect.width);});
-ro.observe(shell);
-applySize(window.innerWidth);
+ro.observe(shell);applySize(window.innerWidth);
 
-/* ── INIT ──────────────────────────────────────────── */
-load(); render(); switchTab('tracker');
+/* ── INIT ── */
+load();render();switchTab('tracker');
 </script>
 </body>
 </html>
